@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Crypto</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="container">Crypto</h1>
+    </header>
+
+    <main class="container">
+      <section class="quote-section">
+        <h2>Cotizador de Criptomonedas</h2>
+        <div class="selectors">
+          <select id="crypto">
+            <option value="" disabled selected>Criptomoneda</option>
+          </select>
+
+          <select id="currency">
+            <option value="" disabled selected>Moneda</option>
+            <option value="USD">Dolar USA</option>
+            <option value="EUR">Euro</option>
+            <option value="ARS">Peso Arg</option>
+          </select>
+        </div>
+
+        <button id="quote" type="submit"><i class="fas fa-arrow-right"></i></button>
+
+        <div class="results" id="results"></div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
