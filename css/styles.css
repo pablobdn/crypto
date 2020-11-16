@@ -49,13 +49,33 @@ section.quote-section {
 .quote-section h2 {
     margin: 0 0 30px 0;
     text-align: center;
+}
 
+.search-cripto input {
+    width: 100%;
+    margin-right: 10px;
+    padding: 5px;
+}
 
+.crypto-results {
+    max-height: 90px;
+    overflow-y: scroll;
+}
+
+.result {
+    cursor: pointer;
+    font-size: 12px;
+    padding: 5px;
+    display: none;
+}
+
+.result:hover {
+    background-color: #C0C2C0;
 }
 
 .selectors select {
     display: block;
-    margin: 0 auto 10px;
+    margin: 10px auto 0;
     padding: 5px;
     width: 100%;
 }
