@@ -17,14 +17,17 @@
       <h1 class="container">Crypto</h1>
     </header>
 
-    <main class="container">
+    <main class="container" >
       <section class="quote-section">
         <h2>Cotizador de Criptomonedas</h2>
+        
         <div class="selectors">
-          <select id="crypto">
-            <option value="" disabled selected>Criptomoneda</option>
-          </select>
-
+          <div class="search-cripto">
+            <input type="text" placeholder="Criptomoneda" id="crypto-input">
+          </div>
+          <div class="crypto-results" id="crypto-results">
+            <li id="result"></li>
+          </div>
           <select id="currency">
             <option value="" disabled selected>Moneda</option>
             <option value="USD">Dolar USA</option>
