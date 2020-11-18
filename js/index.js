@@ -8,9 +8,10 @@ const result = document.querySelector("li#result")
 const spinner = document.getElementById("spinner")
 const main = document.getElementById("main-section")
 let keySelected;
+let cryptoList;
 
 
-//Events
+//Eents
 btn.addEventListener("click", getResults)
 cryptoInput.addEventListener("keyup", searchCrypto)
 cryptoInput.addEventListener("blur", () => {
@@ -24,24 +25,17 @@ result.addEventListener("click", updateInputValue)
 
 //Functions
 function searchCrypto() {
-
     let inputValue = cryptoInput.value.toLowerCase()
 
-    const list = document.getElementsByTagName('li')
-
-    for (let i = 0; i <= list.length; i++) {
-        const coinName = list[i].textContent
+    for (coin of cryptoList) {
+        const coinName = coin.textContent
 
         if (coinName.toLowerCase().indexOf(inputValue) > -1) {
-            list[i].style.display = "block"
+            coin.style.display = "block"
             results.style.display = "block"
         } else {
-            list[i].style.display = "none"
+            coin.style.display = "none"
         }
-    }
-
-    if (inputValue == "") {
-        results.style.display = "none"
     }
 }
 
@@ -62,37 +56,47 @@ const getCryptos = async () => {
 getCryptos()
     .then(crypto => {
         const array = Object.entries(crypto.Data).sort()
-        const info = []
         let resultado = ""
         for (const [key, value] of array) {
-            info.push({
-                "name": value.CoinName.toLowerCase(),
-                "key": key
-            })
             resultado += `<li class="result" value=${key} id="result">${value.CoinName} (${key})</li>`
         }
         result.innerHTML = resultado
         results.style.display = "none"
+        cryptoList = document.getElementsByTagName('li')
     })
 
 async function getResults(e) {
     e.preventDefault()
-    const cryptoSelected = keySelected
-    const currencySelected = currencySelect.options[currencySelect.selectedIndex].value
-    const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoSelected}&tsyms=${currencySelected}&api_key=${apiKey}`
-    const results = await fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            showResults(data.RAW, currencySelected, cryptoSelected)
-        })
+    let cryptoValue = cryptoInput.value
+    let currencyValue = currencySelect.value
+    if (cryptoValue == "" || currencyValue == "") {
+        document.getElementById("error").style.display = "block"
+        const resultsDiv = document.getElementById("results")
+        resultsDiv.innerHTML = ""
+    } else {
+        document.getElementById("error").style.display = "none"
+        spinner.style.display = "block"
+        const cryptoSelected = keySelected
+        const currencySelected = currencySelect.options[currencySelect.selectedIndex].value
+        const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoSelected}&tsyms=${currencySelected}&api_key=${apiKey}`
+        const results = await fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                showResults(data.RAW, currencySelected, cryptoSelected)
+            })
+    }
 }
 
 function showResults(data, currency, crypto) {
-    const result = data[crypto][currency]
-    const resultsDiv = document.getElementById("results")
-    const message = `
-        <p$>Resultado de la conversion</p$>
+    setTimeout(() => {
+        spinner.style.display = "none"
+        const result = data[crypto][currency]
+        const resultsDiv = document.getElementById("results")
+        const message = `
+        <p$>Resultado de la conversión</p$>
         <p>1 ${crypto} = ${result.PRICE.toFixed(2)} ${currency}</p>
     `
-    resultsDiv.innerHTML = message
+        resultsDiv.innerHTML = message
+    }, 1000)
+
 }
