@@ -8,6 +8,7 @@ const result = document.querySelector("li#result")
 const spinner = document.getElementById("spinner")
 const main = document.getElementById("main-section")
 let keySelected;
+let cryptoList;
 
 
 //Eents
@@ -25,16 +26,15 @@ result.addEventListener("click", updateInputValue)
 //Functions
 function searchCrypto() {
     let inputValue = cryptoInput.value.toLowerCase()
-    const list = document.getElementsByTagName('li')
 
-    for (let i = 0; i <= list.length; i++) {
-        const coinName = list[i].textContent
+    for (coin of cryptoList) {
+        const coinName = coin.textContent
 
         if (coinName.toLowerCase().indexOf(inputValue) > -1) {
-            list[i].style.display = "block"
+            coin.style.display = "block"
             results.style.display = "block"
         } else {
-            list[i].style.display = "none"
+            coin.style.display = "none"
         }
     }
 }
@@ -62,6 +62,7 @@ getCryptos()
         }
         result.innerHTML = resultado
         results.style.display = "none"
+        cryptoList = document.getElementsByTagName('li')
     })
 
 async function getResults(e) {

@@ -62,7 +62,7 @@ section.quote-section {
     overflow-y: scroll;
 }
 
-li.result {
+li#result {
     cursor: pointer;
     font-size: 12px;
     padding: 5px;
