@@ -11,7 +11,7 @@ let keySelected;
 let cryptoList;
 
 
-//Eents
+//Events
 btn.addEventListener("click", getResults)
 cryptoInput.addEventListener("keyup", searchCrypto)
 cryptoInput.addEventListener("blur", () => {
@@ -64,6 +64,7 @@ getCryptos()
         results.style.display = "none"
         cryptoList = document.getElementsByTagName('li')
     })
+    .catch(error => console.log(error))
 
 async function getResults(e) {
     e.preventDefault()
@@ -84,19 +85,21 @@ async function getResults(e) {
             .then(data => {
                 showResults(data.RAW, currencySelected, cryptoSelected)
             })
+            .catch(error => console.log(error))
     }
 }
 
 function showResults(data, currency, crypto) {
+    let amount = document.getElementById("amount").value
+    if (amount == "") amount = 1
     setTimeout(() => {
         spinner.style.display = "none"
         const result = data[crypto][currency]
         const resultsDiv = document.getElementById("results")
         const message = `
         <p$>Resultado de la conversión</p$>
-        <p>1 ${crypto} = ${result.PRICE.toFixed(2)} ${currency}</p>
+        <p>${amount} ${crypto} = ${(result.PRICE*amount).toFixed(2)} ${currency}</p>
     `
         resultsDiv.innerHTML = message
     }, 1000)
-
 }

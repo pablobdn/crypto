@@ -22,8 +22,11 @@
         <h2>Cotizador de Criptomonedas</h2>
         
         <div class="selectors">
+          <div>
+            <input type="number" placeholder="Cantidad" min="1" id="amount" class="amount">
+          </div>
           <div class="search-cripto">
-            <input type="text" placeholder="Criptomoneda" id="crypto-input">
+            <input type="text" placeholder="Buscar Criptomoneda" id="crypto-input">
           </div>
           <div class="crypto-results" id="crypto-results">
             <li id="result"></li>
@@ -36,7 +39,7 @@
           </select>
         </div>
 
-        <button id="quote" type="submit"><i class="fas fa-arrow-right"></i></button>
+        <button id="quote" type="submit">Cotizar</i></button>
 
         <div class="results" id="results"></div>
         <div class="error" id="error">Ambos Campos son Obligatorios</div>

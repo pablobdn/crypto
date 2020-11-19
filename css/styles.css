@@ -81,6 +81,14 @@ li#result {
     width: 100%;
 }
 
+input.amount {
+    display:block;
+    margin: 10px auto;
+    padding: 5px;
+    width: 30%;
+    text-align: center;
+}
+
 button {
     display: block;
     margin: 20px auto;
