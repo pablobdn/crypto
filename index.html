@@ -19,25 +19,32 @@
     </header>
 
     <main class="container" >
+      
       <section class="quote-section">
         <h2>Cotizador de Criptomonedas</h2>
+
+        <div>
+          <input type="number" placeholder="Cantidad" min="1" id="amount" class="amount">
+        </div>
         
         <div class="selectors">
           <div>
-            <input type="number" placeholder="Cantidad" min="1" id="amount" class="amount">
+            <div class="search-cripto swap">
+              <input type="text" placeholder="Buscar Criptomoneda" id="crypto-input" class="node">
+              <div class="crypto-results" id="crypto-results">
+                <li id="result"></li>
+              </div>
+            </div>
+            <select class="swap node" id="currency" >
+              <option value="" disabled selected>Moneda</option>
+              <option value="USD">Dolar USA</option>
+              <option value="EUR">Euro</option>
+              <option value="ARS">Peso Arg</option>
+            </select>
           </div>
-          <div class="search-cripto">
-            <input type="text" placeholder="Buscar Criptomoneda" id="crypto-input">
+          <div class="swapBtn" id="swapBtn">
+            <i class="fas fa-exchange-alt"></i>
           </div>
-          <div class="crypto-results" id="crypto-results">
-            <li id="result"></li>
-          </div>
-          <select id="currency">
-            <option value="" disabled selected>Moneda</option>
-            <option value="USD">Dolar USA</option>
-            <option value="EUR">Euro</option>
-            <option value="ARS">Peso Arg</option>
-          </select>
         </div>
 
         <button id="quote" type="submit">Cotizar</i></button>
@@ -55,7 +62,7 @@
       </section>
     </main>
 
-    <footer></footer>
+    <footer class="footer">Pablo Berdun &copy</footer>
 
     <script src="./js/index.js"></script>
   </body>
