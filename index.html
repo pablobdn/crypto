@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -18,25 +19,35 @@
     </header>
 
     <main class="container" >
+      
       <section class="quote-section">
         <h2>Cotizador de Criptomonedas</h2>
+
+        <div>
+          <input type="number" placeholder="Cantidad" min="1" id="amount" class="amount">
+        </div>
         
         <div class="selectors">
-          <div class="search-cripto">
-            <input type="text" placeholder="Criptomoneda" id="crypto-input">
+          <div>
+            <div class="search-cripto swap">
+              <input type="text" placeholder="Buscar Criptomoneda" id="crypto-input" class="node">
+              <div class="crypto-results" id="crypto-results">
+                <li id="result"></li>
+              </div>
+            </div>
+            <select class="swap node" id="currency" >
+              <option value="" disabled selected>Moneda</option>
+              <option value="USD">Dolar USA</option>
+              <option value="EUR">Euro</option>
+              <option value="ARS">Peso Arg</option>
+            </select>
           </div>
-          <div class="crypto-results" id="crypto-results">
-            <li id="result"></li>
+          <div class="swapBtn" id="swapBtn">
+            <i class="fas fa-exchange-alt"></i>
           </div>
-          <select id="currency">
-            <option value="" disabled selected>Moneda</option>
-            <option value="USD">Dolar USA</option>
-            <option value="EUR">Euro</option>
-            <option value="ARS">Peso Arg</option>
-          </select>
         </div>
 
-        <button id="quote" type="submit"><i class="fas fa-arrow-right"></i></button>
+        <button id="quote" type="submit">Cotizar</i></button>
 
         <div class="results" id="results"></div>
         <div class="error" id="error">Ambos Campos son Obligatorios</div>
@@ -51,7 +62,7 @@
       </section>
     </main>
 
-    <footer></footer>
+    <footer class="footer">Pablo Berdun &copy</footer>
 
     <script src="./js/index.js"></script>
   </body>

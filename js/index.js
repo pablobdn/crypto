@@ -7,18 +7,28 @@ const results = document.getElementById("crypto-results")
 const result = document.querySelector("li#result")
 const spinner = document.getElementById("spinner")
 const main = document.getElementById("main-section")
-let keySelected;
+const swapBtn = document.getElementById("swapBtn")
 let cryptoList;
 
 
-//Eents
-btn.addEventListener("click", getResults)
+//Events
 cryptoInput.addEventListener("keyup", searchCrypto)
 cryptoInput.addEventListener("blur", () => {
     let inputValue = cryptoInput.value
     if (inputValue == "") {
         results.style.display = "none"
     }
+})
+swapBtn.addEventListener("click", () => {
+    const node1 = document.getElementsByClassName("swap")[0]
+    const node2 = document.getElementsByClassName("swap")[1]
+    node1.before(node2)
+})
+btn.addEventListener("click", () => {
+    currencySelect.setAttribute("key", currencySelect.value)
+    const node1 = document.getElementsByClassName("node")[0].getAttribute("key")
+    const node2 = document.getElementsByClassName("node")[1].getAttribute("key")
+    getResults(node1, node2)
 })
 result.addEventListener("click", updateInputValue)
 
@@ -40,9 +50,10 @@ function searchCrypto() {
 }
 
 function updateInputValue(e) {
-    keySelected = e.target.attributes.value.textContent
+    let keySelected = e.target.attributes.value.textContent
     const coinSelected = e.target.textContent
     cryptoInput.value = coinSelected
+    cryptoInput.setAttribute("key", keySelected)
     results.style.display = "none"
 }
 
@@ -64,39 +75,38 @@ getCryptos()
         results.style.display = "none"
         cryptoList = document.getElementsByTagName('li')
     })
+    .catch(error => console.log(error))
 
-async function getResults(e) {
-    e.preventDefault()
-    let cryptoValue = cryptoInput.value
-    let currencyValue = currencySelect.value
-    if (cryptoValue == "" || currencyValue == "") {
+
+async function getResults(value1, value2) {
+    if (value1 == "" || value2 == "") {
         document.getElementById("error").style.display = "block"
         const resultsDiv = document.getElementById("results")
         resultsDiv.innerHTML = ""
     } else {
         document.getElementById("error").style.display = "none"
         spinner.style.display = "block"
-        const cryptoSelected = keySelected
-        const currencySelected = currencySelect.options[currencySelect.selectedIndex].value
-        const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoSelected}&tsyms=${currencySelected}&api_key=${apiKey}`
+        const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${value1}&tsyms=${value2}&api_key=${apiKey}`
         const results = await fetch(url)
             .then(response => response.json())
             .then(data => {
-                showResults(data.RAW, currencySelected, cryptoSelected)
+                showResults(data.RAW, value1, value2)
             })
+            .catch(error => console.log(error))
     }
 }
 
-function showResults(data, currency, crypto) {
+function showResults(data, value1, value2) {
+    let amount = document.getElementById("amount").value
+    if (amount == "") amount = 1
     setTimeout(() => {
         spinner.style.display = "none"
-        const result = data[crypto][currency]
+        const result = data [value1] [value2]
         const resultsDiv = document.getElementById("results")
         const message = `
         <p$>Resultado de la conversión</p$>
-        <p>1 ${crypto} = ${result.PRICE.toFixed(2)} ${currency}</p>
+        <p>${amount} ${value1} = ${(result.PRICE*amount).toFixed(5)} ${value2}</p>
     `
         resultsDiv.innerHTML = message
     }, 1000)
-
 }
