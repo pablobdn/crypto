@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <title>Crypto</title>
-  </head>
-  <body>
-    <header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <title>Crypto</title>
+</head>
+<body>
+  
+  <header>
       <h1 class="container">Crypto</h1>
-    </header>
+  </header>
 
-    <main class="container" >
-      
-      <section class="quote-section">
-        <h2>Cotizador de Criptomonedas</h2>
+  <main>
 
-        <div>
+      <img src="./img/Bitcoin P2P-rafiki.svg" alt="">
+          
+      <div class="calculator">
+          <h2>Cotizador de Criptomonedas</h2>
+
           <input type="number" placeholder="Cantidad" min="1" id="amount" class="amount">
-        </div>
-        
-        <div class="selectors">
-          <div>
-            <div class="search-cripto swap">
-              <input type="text" placeholder="Buscar Criptomoneda" id="crypto-input" class="node">
-              <div class="crypto-results" id="crypto-results">
-                <li id="result"></li>
+          
+          <div class="selectors">
+              <div>
+                  <div class="search-cripto swap">
+                      <input type="text" placeholder="Buscar Criptomoneda" id="crypto-input" class="node">
+                      <div class="crypto-results" id="crypto-results">
+                          <li id="result"></li>
+                      </div>
+                  </div>
+                  <select class="swap node" id="currency">
+                      <option value="" disabled selected>Moneda</option>
+                      <option value="USD">Dolar USA</option>
+                      <option value="EUR">Euro</option>
+                      <option value="ARS">Peso Arg</option>
+                  </select>
               </div>
-            </div>
-            <select class="swap node" id="currency" >
-              <option value="" disabled selected>Moneda</option>
-              <option value="USD">Dolar USA</option>
-              <option value="EUR">Euro</option>
-              <option value="ARS">Peso Arg</option>
-            </select>
+              <div class="swapBtn" id="swapBtn">
+                  <i class="fas fa-exchange-alt"></i>
+              </div>
           </div>
-          <div class="swapBtn" id="swapBtn">
-            <i class="fas fa-exchange-alt"></i>
+
+          <button id="quote" type="submit">Cotizar</i></button>
+
+          <div class="results" id="results"></div>
+          <div class="error" id="error">Ambos Campos son Obligatorios</div>
+          <div class="sk-chase" id="spinner">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
           </div>
-        </div>
+      </div>
 
-        <button id="quote" type="submit">Cotizar</i></button>
+  </main>
 
-        <div class="results" id="results"></div>
-        <div class="error" id="error">Ambos Campos son Obligatorios</div>
-        <div class="sk-chase" id="spinner">
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-          <div class="sk-chase-dot"></div>
-        </div>
-      </section>
-    </main>
+  <footer class="footer">Pablo Berdun &copy</footer>
 
-    <footer class="footer">Pablo Berdun &copy</footer>
-
-    <script src="./js/index.js"></script>
-  </body>
+  <script src="./js/index.js"></script>
+</body>
 </html>
