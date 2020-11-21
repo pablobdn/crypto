@@ -5,19 +5,36 @@ html {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: 'Nanum Gothic', sans-serif;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-}
-
 *,
 *:before,
 *:after {
     box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+@media screen and (min-width: 768px)
+{
+    main {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
 }
 
 h1 {
@@ -29,6 +46,15 @@ h1 {
     font-size: 50px;
 }
 
+
+
+@media screen and (min-width: 768px)
+{
+    img {
+        width: 40%;
+    }
+}
+
 .container {
     margin:  auto;
     max-width: 90%;
@@ -38,7 +64,7 @@ header {
     background-color: #5439CB;
 }
 
-section.quote-section {
+.calculator {
     margin: 30px 0;
     padding: 30px;
     border-radius: 10px;
@@ -48,7 +74,7 @@ section.quote-section {
     text-align: center;
 }
 
-.quote-section h2 {
+.calculator h2 {
     margin: 0 0 30px 0;
     text-align: center;
 }
