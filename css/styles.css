@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
+/* Hide input arrows*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -139,7 +152,7 @@ input.amount {
     display:block;
     margin: 10px auto;
     padding: 5px;
-    width: 6rem;
+    width: 7rem;
     text-align: center;
 }
 

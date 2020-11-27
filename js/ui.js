@@ -57,9 +57,11 @@ class UI {
             this.spinner('none')
             const result = data [value1] [value2]
             const resultsDiv = document.getElementById("results")
+            const priceAux = (result.PRICE*amount)
+            const price = numeral(priceAux).format('0,0.00')
             const message = `
             <p$>Resultado de la conversión</p$>
-            <p>${amount} ${value1} = ${(result.PRICE*amount).toFixed(5)} ${value2}</p>
+            <p>${amount} ${value1} = ${price} ${value2}</p>
         `
             resultsDiv.innerHTML = message
         }, 1000)
