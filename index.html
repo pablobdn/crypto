@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
   <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
-    crossorigin="anonymous"
+	rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+	integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+	crossorigin="anonymous"
   />
   <link rel="stylesheet" href="./css/spinner.css">
   <link rel="stylesheet" href="./css/styles.css" />
@@ -17,63 +17,61 @@
 <body>
   
   <header>
-      <h1 class="container">Crypto</h1>
+	  <h1 class="container">Crypto</h1>
   </header>
 
   <main id="main">
 
-      <img src="./img/Bitcoin P2P-rafiki.svg" alt="">
-          
-      <div class="calculator">
-          <h2>Cotizador de Criptomonedas</h2>
+	  <img src="./img/Bitcoin P2P-rafiki.svg" alt="">
+		  
+	  <div class="calculator">
+		  <h2>Cotizador de Criptomonedas</h2>
 
-          <input type="number" placeholder="Cantidad" min="1" id="amount" class="amount">
-          
-          <div class="selectors">
-              <div>
-                  <div class="search-cripto swap">
-                      <input type="text" placeholder="Buscar Criptomoneda" id="crypto-input" class="node">
-                      <div class="crypto-results" id="crypto-results">
-                          <li id="result"></li>
-                      </div>
-                  </div>
-                  <select class="swap node" id="currency">
-                      <option value="" disabled selected>Moneda</option>
-                      <option value="USD">Dolar USA</option>
-                      <option value="EUR">Euro</option>
-                      <option value="ARS">Peso Argentino</option>
-                  </select>
-              </div>
-              <div class="swapBtn" id="swapBtn">
-                  <i class="fas fa-exchange-alt"></i>
-              </div>
-          </div>
+		  <input type="number" placeholder="Cantidad" min="1" id="amount" class="amount">
+		  
+		  <div class="selectors">
+			  <div>
+				  <div class="search-cripto swap">
+					  <div class="crypto-results" id="crypto-results">
+						  <select id="result" class="node">
+							  <option value="" disabled selected>Criptomoneda</option>
+							  <option value="BTC">Bitcoin</option>
+							  <option value="ETH">Ethereum</option>
+							  <option value="XRP">XRP</option>
+							  <option value="ADA">Cardano</option>
+							  <option value="USDT">Tether</option>
+							  <option value="DOT">Polkdot</option>
+							  <option value="BNB">Binance Coin</option>
+							  <option value="LTC">Litecoin</option>
+							  <option value="BCH">Bitcoin Cash</option>
+							  <option value="LINK">Chainlink</option>
+						  </select>
+					  </div>
+				  </div>
+				  <select class="swap node" id="currency">
+					  <option value="" disabled selected>Moneda</option>
+					  <option value="USD">Dolar USA</option>
+					  <option value="EUR">Euro</option>
+					  <option value="ARS">Peso Argentino</option>
+				  </select>
+			  </div>
+			  <div class="swapBtn" id="swapBtn">
+				  <i class="fas fa-exchange-alt"></i>
+			  </div>
+		  </div>
 
-          <button id="quote" type="submit">Cotizar</i></button>
+		  <button id="quote" type="submit">Cotizar</i></button>
 
-          <div class="results" id="results"></div>
-          <div class="error" id="error">Ambos Campos son Obligatorios</div>
-          <div class="sk-chase" id="loading-result">
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-              <div class="sk-chase-dot"></div>
-          </div>
-      </div>
+		  <div class="results" id="results"></div>
+		  <div class="error" id="error">Ambos Campos son Obligatorios</div>
+		  	<div class="spinner" id="spinner">
+				<div class="double-bounce1"></div>
+				<div class="double-bounce2"></div>
+			</div>
+		  </div>
+	  </div>
 
-    </main>
-
-    <div class="spinner" id="spinner">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
-        <p>LOADING...</p>
-    </div>
-
+	</main>
 
   <footer class="footer">&copy Pablo Berdun</footer>
 

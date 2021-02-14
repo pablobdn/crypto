@@ -38,14 +38,7 @@ main {
     margin: 0 auto;
     text-align: center;
     font-family: 'Nanum Gothic', sans-serif;
-    visibility: hidden;
-}
-
-.spinner {
-    position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    visibility: visible;
 }
 
 @media screen and (min-width: 768px)
@@ -110,35 +103,10 @@ header {
     text-align: center;
 }
 
-.search-cripto input {
-    width: 100%;
-    padding: 5px;
-    display: block;
-    margin-bottom: 10px;
-}
-
 .selectors {
     display: flex;
     justify-content: center ;
     align-items: center;
-}
-
-.crypto-results {
-    max-height: 90px;
-    overflow-y: scroll;
-}
-
-.crypto-results li{
-    cursor: pointer;
-    font-size: 12px;
-    padding: 5px;
-    list-style: none;
-    text-align: start;
-    display: none;
-}
-
-.crypto-results li:hover {
-    background-color: #C0C2C0;
 }
 
 .selectors select {
@@ -191,7 +159,7 @@ button:hover {
 
 .results {
     text-align: center;
-    color: #5439CB;
+    color: #3d2b91;
 }
 
 .error {
